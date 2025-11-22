@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+requests
+duckduckgo-search
+imap-tools
+python-dotenv
