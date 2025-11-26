@@ -346,10 +346,9 @@
   </div>
 
   <script>
-    const BACKEND_BASE = (() => {
-      const loc = window.location;
-      return loc.protocol + "//" + loc.hostname + ":8000";
-    })();
+    // Point to the backend on the same host (port 8000) so the browser can reach it from localhost.
+    const { protocol, hostname } = window.location;
+    const BACKEND_BASE = `${protocol}//${hostname}:8000`;
     const PROMPT_ENDPOINT = BACKEND_BASE + "/prompt";
     const STORAGE_KEY = "mcp-chat-sessions";
     const conversationList = document.getElementById("conversationList");
