@@ -1,6 +1,12 @@
 fastapi
 uvicorn
 requests
-duckduckgo-search
+ddgs
 imap-tools
 python-dotenv
+weaviate-client
+google-api-python-client
+google-auth
+google-auth-oauthlib
+playwright
+beautifulsoup4
