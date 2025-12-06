@@ -2,12 +2,15 @@ services:
   mcp-server:
     build: .
     container_name: mcp-server
-    # Use the host network so the backend can reach the host's Ollama on 127.0.0.1.
-    network_mode: host
     ports:
       - "8000:8000"
     env_file:
       - .env
+    environment:
+      # Reach the host's Ollama from inside the container
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      # Talk to the Weaviate container via service name on the compose network
+      WEAVIATE_URL: http://weaviate:8080
     extra_hosts:
       - "host.docker.internal:host-gateway"
   frontend:
